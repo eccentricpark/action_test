@@ -8,6 +8,9 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
+    permissions:
+      id-token: write
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -17,6 +20,7 @@ jobs:
     
     - name: Build
       run: npm run build
+
 
     - name: Deploy
       uses: actions/deploy-pages@v1
