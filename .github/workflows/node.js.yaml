@@ -4,12 +4,12 @@ on:
   push:
     branches: [ main ]
 
-environment:
-  name: github-pages
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
 
     permissions:
       pages: write
