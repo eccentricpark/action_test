@@ -27,11 +27,11 @@ jobs:
       with:
         path: dist
         name: github-pages
-        
+
     - name: Deploy
       uses: actions/deploy-pages@v1
       with:
-        token: ${{secrets.ACCESS_TOKEN}}
+        token: ${{secrets.GITHUB_TOKEN}}
         repository-name: eccentricpark/eccentricpark.github.io
         branch: main
         folder: dist
