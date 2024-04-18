@@ -35,6 +35,6 @@ jobs:
       uses: actions/deploy-pages@v1
       with:
         token: ${{secrets.GITHUB_TOKEN}}
-        repository-name: eccentricpark.github.io
+        repository-name: https://github.com/eccentricpark/eccentricpark.github.io
         branch: main
         folder: dist
