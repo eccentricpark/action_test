@@ -1,10 +1,27 @@
-strategy:
-  matrix:
-    node-version: ['14.x', '16.x', '18.x']
+name: Deploy to GIthub pages
 
-steps:
-- uses: actions/checkout@v4
-- name: Use Node.js ${{matrix.node-version}}
-  uses: actions/setup-node@v4
-  with:
-    node-version: ${{matrix.node-version}}
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build
+      run: npm run build
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        token: ${{secrets.ACCESS_TOKEN}}
+        repository-name: eccentricpark/eccentricpark.github.io
+        branch: main
+        folder: dist
