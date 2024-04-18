@@ -36,5 +36,5 @@ jobs:
       with:
         token: ${{secrets.GITHUB_TOKEN}}
         repository-name: eccentricpark/eccentricpark.github.io
-        branch: gh-pages
+        branch: main
         folder: dist
